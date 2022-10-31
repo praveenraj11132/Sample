@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Praveen\Form\Api\ModelRepositoryInterface"
+                type="Praveen\Form\Model\ModelRepository" />
+    <preference for="Praveen\Form\Api\Data\ModelInterface"
+                type="Praveen\Form\Model\Model" />
+
+    <preference for="Praveen\Form\Api\Data\GridInterface" type="Praveen\Form\Model\Grid" />
+
+    <virtualType name="Praveen\Form\Model\ResourceModel\Grid\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">student</argument>
+            <argument name="resourceModel" xsi:type="string">Praveen\Form\Model\ResourceModel\Grid</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="grid_record_grid_list_data_source" xsi:type="string">Praveen\Form\Model\ResourceModel\Grid\Grid\Collection</item>
+                <item name="edit_form_data_source" xsi:type="string">Praveen\Form\Model\ResourceModel\Grid\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

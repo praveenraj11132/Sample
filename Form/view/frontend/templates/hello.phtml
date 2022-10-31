@@ -1,0 +1,37 @@
+<?php 
+$helper = \Magento\Framework\App\ObjectManager::getInstance()->get('Praveen\Form\Helper\Data'); 
+if($helper->isEnable()) : ?>
+
+
+<?php
+/* @var Jayanka\HelloWorld\Block\Hello $block */
+$cars = $block->getAllCars();
+
+?>
+<br>
+<br>
+<form method="post" action="<?= $block->getAddModelPostUrl() ?>">
+ 
+<fieldset>
+       <!-- <div>
+            <label for="ID"><?= __("ID") ?></label>
+           <input type="text" name="ID" id="ID" />
+      </div> -->
+       <div>
+            <label for="Name"><?= __("name") ?><br>
+           <input type="varchar" name="name" id="name" />
+       </div>
+       <div>
+            <label for="Email"><?= __("email") ?><br>
+           <input type="varchar" name="email" id="email" />
+       </div>
+       <div>
+            <label for="Mobile"><?= __("mobile") ?>
+           <input type="number" name="mobile" id="mobile" /><br><br>
+       </div>
+      <input type="submit" value="<?= __("Submit") ?>" />
+</fieldset> 
+  
+</form>
+<hr />
+<?php endif; ?>
